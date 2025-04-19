@@ -1,0 +1,30 @@
+server:
+  port: 9092
+  servlet:
+    context-path: /bs-employee
+
+spring:
+  main:
+    banner-mode: off
+  application:
+    name: prjSpringBoot
+  datasource:
+    url: jdbc:mysql://${MYSQL_HOST:localhost}:3306/employee_management_system?allowPublicKeyRetrieval=true&useSSL=false
+    username: root
+    password: root
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQLDialect
+        hbm2ddl:
+          auto: update
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+    generate-ddl: true
+    database: mysql
+    defer-datasource-initialization: true
+  sql:
+    init:
+      mode: always
